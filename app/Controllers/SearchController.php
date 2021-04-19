@@ -14,7 +14,7 @@ public function search()
     $searchModel=new SearchModel;
     $search_term=$this->request->getPost('search');
 
-    $data['flori']=$searchModel->where('nume',$search_term)->findAll();
+    $data['flori']=$searchModel->where('nume',$search_term)->orwhere('culoare',$search_term)->findAll();
         
     return view('search_result',$data);
 }
